@@ -77,7 +77,7 @@ def login():
 
 @app.route('/02')
 def test():
-    return render_template('02.html',params =locals())
+    return render_template('text02.html',params =locals())
 
 
 if __name__ == "__main__":
