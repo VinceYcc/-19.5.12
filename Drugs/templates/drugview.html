@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>医院管理系统</title>
+    <link rel="stylesheet" href="../static/css/drug.css">
+    <script src="/static/js/jquery-1.11.3.js"></script>
+    <script>
+        function checkname(){
+            var ret = false;//假设用户名称不存在
+            $.ajax({
+                url:"/checkuname",
+                type:"get",
+                data:"uname="+$("#uname").val(),
+                async:false,
+                dataType:"json",
+                success:function(data){
+                    if(data.status==1){
+                        ret = true;//将用户名设置为已存在的状态
+                        }
+                        $("#uname-tip").html(data.text);
+                    }
+                });
+            return ret;
+            }
+            $(function(){
+                $("#uname").blur(function(){
+                    checkname();
+                    });
+                $("#btnReg").click(function(){
+                    if(!checkname()){
+                        $.ajax({
+                            url:'/add',
+                            type:'post',
+                            dataType:"json",
+                            data:{
+                                uid:$("#uid").val(),
+                                uname:$("#uname").val(),
+                                upro:$("#upro").val(),
+                                unum:$("#unum").val(),
+                                uprice:$("#uprice").val()
+                                },
+                            success:function(data){
+                                if(data.status==1){
+                                    $("#uid").val("");
+                                    $("#uname").val("");
+                                    $("#upro").val("");
+                                    $("#unum").val("");
+                                    $("#uprice").val("");
+                                    $("#uname-tip").val("");
+                                    alert(data.text);
+                                    }else{alert(data.text)}
+                                }
+                            });
+                        }
+                    });
+                });
+    </script>
+</head>
+<body>
+    <div id="box">
+        <div id="top">
+        <img src="../static/images/1.png" class="p1">
+        <img src="../static/images/2.jpg" class="p2">
+        <ul class="u1">
+            <li class="l1">
+                <span>admin</span>
+                <ol class="o1">
+                    <li>
+                        <a href="">个人信息</a>
+                    </li>
+                    <li>
+                        <a href="">切换账号</a>
+                    </li>
+                    <li>
+                        <a href="">退出</a>
+                    </li>
+                </ol>
+            </li>
+        </ul>
+    </div>
+        <div id="mid">
+            <select>
+                <option>门诊</option>
+                <option>门诊</option>
+                <option>门诊</option>
+                <option>门诊</option>
+            </select>
+            <select>
+                <option>门诊</option>
+                <option>门诊</option>
+                <option>门诊</option>
+                <option>门诊</option>
+            </select>
+            <select>
+                <option>门诊</option>
+                <option>门诊</option>
+                <option>门诊</option>
+                <option>门诊</option>
+            </select>
+            <select>
+                <option>门诊</option>
+                <option>门诊</option>
+                <option>门诊</option>
+                <option>门诊</option>
+            </select>
+        </div>
+        <div id="down" class="down">
+            <form action="/drugview" method="" class="form">
+                <input type="text" name="kw" value="{{params.kw}}">
+                <button>搜索</button>
+                <a href="/excel">导出表格</a>
+                <div class="input">
+                    药品编码:<input type="number" id="uid" style="width:50px;margin:7px 17px 5px 5px;">
+                    药品名称:<input type="text" id="uname" style="width:150px;margin:7px 17px 5px 5px;">
+                    药品厂商:<input type="text" id="upro" style="width:150px;margin:7px 17px 5px 5px;">
+                    药品数量:<input type="number" id="unum" style="width:50px;margin:7px 17px 5px 5px;">
+                    药品价格:<input type="number" id="uprice" style="width:50px;">
+                    <span id="uname-tip" style="width:150px;height:50px;background:cyan;border:1px solid cyan;"></span>
+                    <button id="btnReg" style="float:right;margin:7px 0px 6px 0px;">添加</button>
+                </div>
+                <table width="1000px" border="1px">
+                    <tbody>
+                        <tr>
+                            <th>药品编码</th>
+                            <th>药品名称</th>
+                            <th>药品厂商</th>
+                            <th>药品数量</th>
+                            <th>药品价格</th>
+                            <th>操作</th>
+                        </tr>
+                        {% for drug in params.drugs %}
+                        <tr>
+                            <td>{{drug.id}}</td>
+                            <td>{{drug.name}}</td>
+                            <td>{{drug.pro}}</td>
+                            <td>{{drug.num}}</td>
+                            <td>{{drug.price}}</td>
+                            <td>
+                                <a href="/update?id={{drug.id}}">修改</a>
+                                <a href="/delete?id={{drug.id}}">删除</a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                        <tr>
+                            <td colspan="5">
+                                <a href="/drugview?currentPage=1">首页</a>
+                                <a href="/drugview?currentPage={{params.prevPage}}">上一页</a>
+                                <a href="/drugview?currentPage={{params.nextPage}}">下一页</a>
+                                <a href="/drugview?currentPage={{params.lastPage}}">尾页</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

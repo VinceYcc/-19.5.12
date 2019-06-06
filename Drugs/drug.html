@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>二级界面</title>
+    <style>
+        #d1{
+            height:90px;
+            border-bottom:5px solid green;
+            }
+        #d1 .p1{
+            width:500px;
+            height:90px;
+            float:left;
+            }
+        #d1 .p2{
+            width:50px;
+            height:50px;
+            float:right;
+            }
+        #d1 .u1{
+            width:100px;
+            height:90px;
+            text-align:center;
+            float:right;
+            }
+        ul,ol{
+            margin:0;
+            padding:0;
+            list-style:none;
+            }
+        .o1{
+            display:none;
+            }
+        .l1:hover ol{
+            display:block;
+            }
+        #d2{
+            text-align:center;
+            float:left;
+            height:650px;
+            margin:0;
+            width:150px;
+            background:#c2c2c2;
+            }
+        #d2>.u1>.l1{
+            margin-bottom:100px;
+            }
+        .s1{
+            width:0px;
+            height:0px;
+            border:10px solid rgba(0,0,0,0);
+            border-top:10px solid cyan;
+            float:left;
+            }
+        #d3{
+            float:left;
+            position:absolute;
+            left:150px;
+            }
+    </style>
+</head>
+<body>
+    <div id="d1">
+        <img src="1.png" class="p1">
+        <img src="2.jpg" class="p2">
+        <ul class="u1">
+            <li class="l1">
+                <span>admin</span>
+                <ol class="o1">
+                    <li>
+                        <a href="">个人信息</a>
+                    </li>
+                    <li>
+                        <a href="">切换账号</a>
+                    </li>
+                    <li>
+                        <a href="">退出</a>
+                    </li>
+                </ol>
+            </li>
+        </ul>
+    </div>
+    <div id="d2">
+        <ul class="u1">
+            <li class="l1">
+                <span>门诊管理</span>
+                <div class="s1"></div>
+                    <ol class="o1">
+                        <li>
+                            <a href="">病人信息</a>
+                        </li>
+
+                        <li>
+                            <a href="">挂号单</a>
+                        </li>
+
+                        <li>
+                            <a href="">就诊情况</a>
+                        </li>
+                    </ol>
+            </li>
+            <li class="l1">
+                <span>住院管理</span>
+                <div class="s1"></div>
+                    <ol class="o1">
+                        <li>
+                            <a href="">病人信息</a>
+                        </li>
+                        <li>
+                            <a href="">家属信息</a>
+                        </li>
+                        <li>
+                            <a href="">出院结算</a>
+                        </li>
+                    </ol>
+            </li>
+            <li class="l1">
+                <span>药库管理</span>
+                <div class="s1"></div>
+                    <ol class="o1">
+                        <li>
+                            <a href="">采购管理</a>
+                        </li>
+                        <li>
+                            <a href="">入库管理</a>
+                        </li>
+                        <li>
+                            <a href="">出库管理</a>
+                        </li>
+                        <li>
+                            <a href="">库存核算</a>
+                        </li>
+                    </ol>
+            </li>
+            <li class="l1">
+                <span>工作职员</span>
+                <div class="s1"></div>
+                    <ol class="o1">
+                        <li>
+                            <a href="">医师</a>
+                        </li>
+                        <li>
+                            <a href="">护士</a>
+                        </li>
+                        <li>
+                            <a href="">教授</a>
+                        </li>
+                        <li>
+                            <a href="">院长</a>
+                        </li>
+                    </ol>
+            </li>
+        </ul>
+    </div>
+    <div id="d3">
+        <img src="3.jpeg" height="650px;" width="1400px;">
+    </div>
+</body>
+</html>
