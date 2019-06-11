@@ -1,0 +1,16 @@
+img{
+    width:490px;
+    height:280px;
+    }
+#od,#bh,#md,#pd{
+    float:left;
+    overflow:hidden;
+    position:relative;
+    }
+#od h1,#bh h1,#md h1,#pd h1{
+    float:left;
+    position:absolute;
+    }
+#bh,#pd{
+    margin-left:20px;
+    }

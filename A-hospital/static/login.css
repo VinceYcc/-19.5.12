@@ -1,0 +1,106 @@
+/*清除默认样式，设置基础样式*/
+body,p{
+    margin:0
+}
+
+body{
+    color:#999;
+    font-size:14px;
+}
+
+
+
+input:focus{
+    /*取消表控件在焦点状态下的轮廓线*/
+    outline:none;
+}
+
+
+.form-line{
+    margin-bottom:20px;
+}
+.form-line>p{
+
+    width:56px;
+    height:50px;
+    text-align:left;
+    font-size:15px;
+    line-height:50px;
+    margin-right:40px;
+}
+.uinput{
+    width:300px;
+    height:45px;
+    border:1px solid #999;
+    box-sizing:border-box;
+    padding-left:20px;
+    border-radius:8px;
+
+
+
+}
+.form-line>div>p{
+    float:right;
+}
+.form-line>div>p{
+    text-decoration:underline;
+}
+
+.form-line>div>input{
+    width:15px;
+    height:15px;
+    vertical-align:top;
+}
+
+.form-line .btn{
+    box-sizing:border-box;
+    width:100px;
+    height:40px;
+    background:#64a131;
+    color:white;
+    border:1px solid #64a131;
+    font-size:18px;
+    border-radius:5px;
+    text-align:center;
+    line-height:40px;
+    margin:0 95px 0 0;
+}
+.form-line a.btn{
+    float:right;
+    background:#fff;
+    color:#64a131;
+
+}
+
+.yanzhengma{
+    margin-bottom:10px;
+}
+
+.yanzhengma input{
+    width:90px;
+    height:35px;
+}
+
+.yanzhengma .code{
+    width:90px;
+    height:35px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
