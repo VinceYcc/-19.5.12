@@ -415,9 +415,9 @@ def add_bed():
         patient_beds = db.session.query(Medical_mange).filter_by(patient_bed=patient_bed).all()
         for b in patient_beds:
             blist.append(b.patient_bed)
-            for p in patient_id:
+            for p in patient:
                 plist.append(p.patient_id)
-        if patient_bed in blist or patient in plist:
+        if patient_bed in blist or patient_id in plist:
             return "床位已被使用"
         else:
             beds.patient_bed = patient_bed
@@ -478,7 +478,7 @@ def add_patient():
         db.session.add(users)
         # db.session.commit()
 
-        return redirect('/inhospital')
+        return "预约成功"
 
 
 
