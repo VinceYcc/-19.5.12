@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="/static/js/common.js"></script>
+    <script src="/static/js/jquery-1.11.3.js"></script>
+    <script>
+    /*
+        $(function(){
+            $("#btnShow").click(function(){
+                var xhr = createXhr();
+                xhr.open("get","/check_patient",true);
+                xhr.onreadystatechange=function(){
+                    if(xhr.readyState==4&&xhr.status==200){
+                        //1.将responseText转换为JS数组
+                        var users = JSON.parse(xhr.responseText);
+                        console.log(users)
+                        //2.解析数组拼tr,td显示到#content中
+                        var html = "";
+                        for(var i=0;i<users.length;i++){
+                            html+="<tr>";
+                                html+="<td>"+users[i].medical_id+"</td>";
+                                html+="<td>"+users[i].medical_num+"</td>";
+                                html+="<td>"+users[i].patient_bed+"</td>";
+                            html+="</tr>";
+                        }
+                        $("#content").html(html);
+                    }
+                }
+                xhr.send(null);
+            });
+        });
+        */
+    </script>
+</head>
+<body>
+
+<!--<button id="btnShow">显示详情</button>-->
+    <!--<table border="1" width="">-->
+        <!--<tr>-->
+            <!--<td>护士受理ID</td>-->
+            <!--<td>病人预约床号</td>-->
+            <!--<td>病人ID</td>-->
+        <!--</tr>-->
+        <!--<tbody id="content">-->
+        <!--</tbody>-->
+    <!--</table>-->
+<form action="/check_patient" method="get">
+    <a href="/check_patient"></a>
+        <table border="1" width="">
+        <tr>
+            <td>护士受理ID</td>
+            <td>病人预约床号</td>
+            <td>病人ID</td>
+        </tr>
+            {% for u in params.users %}
+            <tr>
+                <td>{{u.medical_id}}</td>
+                <td>{{u.medical_num}}</td>
+                <td>{{u.patient_be}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+</form>
+</body>
+</html>

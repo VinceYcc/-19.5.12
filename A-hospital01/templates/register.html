@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="/static/jquery-1.11.3.js"></script>
+    <script>
+      function check_name(){
+                var ret = false;
+                $.ajax({
+                    url:"/reg",
+                    type:"get",
+                    data:"id_card="+$("#d1").val(),
+                    async:true,
+                    dataType:"json",
+                    success:function(data){
+                        console.log(data)
+                        if(data=="0"){$("#d6").html("不存在")}
+                        else{for(var i=0;i<data.length;i++){
+                        $("#d6").html("已存在");
+                        $("#d2").html(data[i].s_name);
+                        $("#d3").html(data[i].s_tel);
+                        $("#d4").html(data[i].s_addr);
+                        }
+                        }
+                    }
+                });
+      };
+      $(function(){
+            $("#d1").blur(function(){
+                check_name();
+            });
+      });
+    </script>
+</head>
+<body>
+    <table border="0" width="350">
+    <tr><th>身份证号:</th><th><input type="text" id="d1"></th><td id="d6"></td></tr>
+    <tr><th>姓名:</th><th><input type="text" id="d2"></th></tr>
+    <tr><th>联系电话:</th><th><input type="text" id="d3"></th></tr>
+    <tr><th>家庭住址:</th><th><input type="text" id="d4"></th></tr>
+    <tr><th>就诊日期:</th><th><input type="date" id="d5"></th></tr>
+    </table>
+</body>
+</html>

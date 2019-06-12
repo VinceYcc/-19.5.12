@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+       <link rel="stylesheet" href="../static/css/base.css">
+    <style>
+        .c1{
+            margin-top:20px;
+        }
+
+
+    </style>
+</head>
+<body>
+<div id="box">
+    <div id="top">
+        <img src="../static/images/1.png" class="p1">
+        <img src="../static/images/2.jpg" class="p2">
+        <ul class="u1">
+            <li class="l1">
+                <span>admin</span>
+                <ol class="o1">
+                    <li>
+                        <a href="/personal?name={{params.name}}">个人信息</a>
+                    </li>
+                    <li>
+                        <a href="/switch">切换账号</a>
+                    </li>
+                    <li>
+                        <a href="/exit">退出</a>
+                    </li>
+                </ol>
+            </li>
+        </ul>
+    </div>
+
+    <form action="/add_patient" method="post" enctype="multipart/form-data">
+    <div class="c1">病人姓名：<input type="text" name="patient_name" placeholder="请输入身份证上姓名"></div>
+    <div class="c1">病人年龄：<input type="text" name="patient_age" placeholder="请输入年龄"></div>
+    <div class="c1">住址信息：<input type="text" name="patient_info" placeholder=""></div>
+    <div class="c1">预约住院：<input type="checkbox" name="isActive"></div>
+    <div class="c1"><input type="submit"></div>
+
+    </form>
+</div>
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="/static/jquery-1.11.3.js"></script>
+    <link rel="stylesheet" href="../static/css/base.css">
+    <script>
+
+      function check_name(){
+                var ret = false;
+                $.ajax({
+                    url:"/reg",
+                    type:"get",
+                    data:"id_card="+$("#d1").val(),
+                    async:true,
+                    dataType:"json",
+                    success:function(data){
+                        var date = new Date();
+                        if(data=="0"){$("#d6").html("不存在");
+                            temp = false;
+                            $("#d5").attr("value",date);
+                        }
+                        else{for(var i=0;i<data.length;i++){
+                        $("#d6").html("已存在");
+                        temp = true;
+                        $("#d2").attr("value",data[i].s_name);
+                        $("#d3").attr("value",data[i].s_tel);
+                        $("#d4").attr("value",data[i].s_addr);
+                        $("#d5").attr("value",date);
+                        }
+                        }
+                    }
+                });
+      };
+      $(function(){
+            temp = true;
+            $("#d1").blur(function(){
+                check_name();
+            $("#d7").click(function(){
+            $.ajax({
+                    url:"/reg1",
+                    type:"get",
+                    data:{"id_card":$("#d1").val(),
+                            "s_name":$("#d2").val(),
+                            "s_tel":$("#d3").val(),
+                            "s_addr":$("#d4").val(),
+                            "s_in_date":$("#d5").val()},
+                    async:true
+
+            });
+            alert("挂号成功")
+            replaceDoc()
+      });
+            });  });
+    </script>
+    <script>
+function replaceDoc(){
+    window.location.replace("/register")
+}
+</script>
+</head>
+<body>
+<div id="box">
+<div id="top">
+        <img src="../static/images/1.png" class="p1">
+        <img src="../static/images/2.jpg" class="p2">
+        <ul class="u1">
+            <li class="l1">
+                <span>admin</span>
+                <ol class="o1">
+                    <li>
+                        <a href="/personal?name={{params.name}}">个人信息</a>
+                    </li>
+                    <li>
+                        <a href="/switch">切换账号</a>
+                    </li>
+                    <li>
+                        <a href="/exit">退出</a>
+                    </li>
+                </ol>
+            </li>
+        </ul>
+    </div>
+    <table border="0" width="350">
+    <tr><th>身份证号:</th><th><input type="text" id="d1"></th><td id="d6"></td></tr>
+    <tr><th>姓名:</th><th><input type="text" id="d2"></th></tr>
+    <tr><th>联系电话:</th><th><input type="text" id="d3"></th></tr>
+    <tr><th>家庭住址:</th><th><input type="text" id="d4"></th></tr>
+    <tr><th>就诊日期:</th><th><input type="text" id="d5"></th></tr>
+    <tr><th></th><th><input type="button" id="d7" value="挂号"></th></tr>
+    </table>
+    </div>
+</body>
+</html>

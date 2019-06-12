@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../static/css/base.css">
+
+</head>
+<body>
+<div id="box">
+<div id="top">
+        <img src="../static/images/1.png" class="p1">
+        <img src="../static/images/2.jpg" class="p2">
+        <ul class="u1">
+            <li class="l1">
+                <span>admin</span>
+                <ol class="o1">
+                    <li>
+                        <a href="/personal?name={{params.name}}">个人信息</a>
+                    </li>
+                    <li>
+                        <a href="/switch">切换账号</a>
+                    </li>
+                    <li>
+                        <a href="/exit">退出</a>
+                    </li>
+                </ol>
+            </li>
+        </ul>
+    </div>
+<form action="/recive_bed" method="post" enctype="multipart/form-data">
+    <p>请输入床位号：<input type="text" name="bed_id">
+    <input type="submit"></p>
+</form>
+    </div>
+</body>
+</html>

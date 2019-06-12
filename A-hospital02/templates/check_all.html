@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+       <link rel="stylesheet" href="../static/css/base.css">
+    <style>
+        .c1{
+            margin-top:20px;
+        }
+
+
+    </style>
+       <style>
+        #left a{
+    margin:0 25px;
+    font-size:20px;
+}
+    </style>
+</head>
+<body>
+<div id="box">
+    <div id="top">
+        <img src="../static/images/1.png" class="p1">
+        <img src="../static/images/2.jpg" class="p2">
+        <ul class="u1">
+            <li class="l1">
+                <span>admin</span>
+                <ol class="o1">
+                    <li>
+                        <a href="/personal?name={{params.name}}">个人信息</a>
+                    </li>
+                    <li>
+                        <a href="/switch">切换账号</a>
+                    </li>
+                    <li>
+                        <a href="/exit">退出</a>
+                    </li>
+                </ol>
+            </li>
+        </ul>
+    </div>
+            <div id="left">
+                    <a href="/add_patient">预约病房</a>
+                    <a href="/check_infor">预约情况</a>
+                    <a href="/inhospital">住房情况</a>
+                    <a href="/add_01">住院申请</a>
+                    <a href="/">申请出院</a>
+
+                    <a href="/">费用结算</a>
+                    <a href="/">统计账单</a>
+        </div>
+
+    <form action="/check_all" method="get" >
+        <table width="1000px" border="1px">
+                    <tr>
+                        <td>预约 ID</td>
+                        <td>预约姓名</td>
+                        <td>年龄</td>
+                        <td>预约信息</td>
+                        <td>预约床位</td>
+                    </tr>
+                    {% for u in params.use%}
+                    <tr>
+
+                        <td>{{u.patient_id}}</td>
+                        <td>{{u.patient_name}}</td>
+                        <td>{{u.patient_id}}</td>
+                        <td>{{u.patient_info}}</td>
+                        <td>{{u.p_active}}</td>
+                    </tr>
+                    {% endfor %}
+        </table>
+    </form>
+</div>
+</body>
+</html>
+</body>
+</html>

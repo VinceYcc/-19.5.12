@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../static/css/base.css">
+    <script src="/static/js/common.js"></script>
+    <script src="/static/js/jquery-1.11.3.js"></script>
+    <script>
+    /*
+        $(function(){
+            $("#btnShow").click(function(){
+                var xhr = createXhr();
+                xhr.open("get","/check_patient",true);
+                xhr.onreadystatechange=function(){
+                    if(xhr.readyState==4&&xhr.status==200){
+                        //1.将responseText转换为JS数组
+                        var users = JSON.parse(xhr.responseText);
+                        console.log(users)
+                        //2.解析数组拼tr,td显示到#content中
+                        var html = "";
+                        for(var i=0;i<users.length;i++){
+                            html+="<tr>";
+                                html+="<td>"+users[i].medical_id+"</td>";
+                                html+="<td>"+users[i].medical_num+"</td>";
+                                html+="<td>"+users[i].patient_bed+"</td>";
+                            html+="</tr>";
+                        }
+                        $("#content").html(html);
+                    }
+                }
+                xhr.send(null);
+            });
+        });
+        */
+    </script>
+</head>
+<body>
+<div id="box">
+    <div id="top">
+        <img src="../static/images/1.png" class="p1">
+        <img src="../static/images/2.jpg" class="p2">
+        <ul class="u1">
+            <li class="l1">
+                <span>admin</span>
+                <ol class="o1">
+                    <li>
+                        <a href="/personal?name={{params.name}}">个人信息</a>
+                    </li>
+                    <li>
+                        <a href="/switch">切换账号</a>
+                    </li>
+                    <li>
+                        <a href="/exit">退出</a>
+                    </li>
+                </ol>
+            </li>
+        </ul>
+    </div>
+
+<form action="/check_patient" method="get">
+    <a href="/check_patient"></a>
+        <table border="1" width="">
+        <tr>
+            <td>护士受理ID</td>
+            <td>病人预约床号</td>
+            <td>病人ID</td>
+        </tr>
+            {% for u in params.users %}
+            <tr>
+                <td>{{u.medical_id}}</td>
+                <td>{{u.medical_num}}</td>
+                <td>{{u.patient_be}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+
+</form>
+</div>
+</body>
+</html>

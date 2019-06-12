@@ -1,0 +1,70 @@
+/*清楚浏览器的默认样式*/
+body,h1,h2,h3,h4,h5,h6,p,ul,ol{
+    margin:0;
+    padding:0;
+    list-style:none;
+    }
+/*基础样式*/
+body{
+    font:12px youyuan,Arial;
+    color:#999;
+    background:#fff;
+    padding-top:20px;
+    }
+a{
+    color:#999;
+    text-decoration:none;
+    }
+input:focus{
+    outline:none;
+    }
+/*外部容器的样式*/
+#box{
+    width:1000px;
+    margin:0 auto;
+    }
+#top{
+    height:100px;
+    border-bottom:5px solid green;
+    }
+#top .p1{
+    width:500px;
+    height:90px;
+    float:left;
+    }
+#top .p2{
+    width:50px;
+    height:50px;
+    float:right;
+    }
+#top .u1{
+    width:100px;
+    height:90px;
+    text-align:center;
+    float:right;}
+
+/*外部容器的样式*/
+#box{
+    width:1000px;
+    margin:0 auto;
+    }
+#top{
+    height:100px;
+    border-bottom:5px solid green;
+    }
+#top .p1{
+    width:500px;
+    height:90px;
+    float:left;
+    }
+#top .p2{
+    width:50px;
+    height:50px;
+    float:right;
+    }
+#top .u1{
+    width:100px;
+    height:90px;
+    text-align:center;
+    float:right;}
+
