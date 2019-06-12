@@ -17,12 +17,12 @@
                     dataType:"json",
                     success:function(data){
                         var date = new Date();
-                        if(data=="0"){$("#d6").html("不存在");
+                        if(data=="0"){$("#d6").html("验证通过");
                             temp = false;
                             $("#d5").attr("value",date);
                         }
                         else{for(var i=0;i<data.length;i++){
-                        $("#d6").html("已存在");
+                        $("#d6").html("已挂号，请勿重复操作");
                         temp = true;
                         $("#d2").attr("value",data[i].s_name);
                         $("#d3").attr("value",data[i].s_tel);

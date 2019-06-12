@@ -1,0 +1,317 @@
+/*1.顶部*/
+#top{
+    height:50px;
+}
+/*左中右浮动*/
+#logo{
+    float:left;
+    width:168px;
+    border-radius:10px;
+}
+.search{
+    float:left;
+    margin-left:190px;
+
+    position:relative;
+}
+.search input{
+    width:370px;
+    height:36px;
+    border:1px solid #999;
+    background:#f5f5f5;
+    padding-left:10px;
+    padding-right:50px;
+    border-radius:19px;
+
+
+}
+.search img{
+    width:40px;
+    height:40px;
+    position:absolute;
+    right:0;
+    top:0;
+
+}
+#top ul{
+    float:right;
+    margin-top:11px;
+}
+#top ul li{
+    float:left;
+    border-right:1px solid #999;
+    /*固定元素的高度，统一边框的高度*/
+    height:20px;
+    padding:0 15px;
+}
+
+#top ul li:last-child{
+    border:none;
+}
+
+/*导航*/
+#nav{
+    margin:15px 0;
+}
+
+#nav a{
+    font-size:17px;
+    margin-right:40px;
+
+}
+/*轮播图*/
+#banner{
+    height:500px;
+    position:relative;
+}
+#banner img{
+    width:1300px;
+    height:500px;
+}
+#banner ul{
+    position:absolute;
+    bottom:15px;
+    left:50%;
+    margin-left:-35px;
+}
+#banner li{
+    float:left;
+    width:10px;
+    height:10px;
+    border-radius:50%;
+    background:#fff;
+    margin-right:5px;
+}
+#banner ul li:first-child{
+    background:cyan;
+}
+#banner ul li:last-child{
+    margin:0;
+}
+#banner a{
+    position:absolute;
+    width:35px; /*绝对定位*/
+    height:70px;
+    border-radius:5px;
+    background:rgba(0,0,0,.1) url("../images/index/arrow-left.png") no-repeat center;
+    top:50%;
+    margin-top:-35px;
+
+}
+#banner a.left{
+    left:5px;
+}
+#banner a.right{
+    right:5px;
+    background-image:url("../images/index/arrow-right.png");
+}
+
+/*4.推荐*/
+#command{
+    height:240px;
+    margin:10px 0;
+}
+#command div{
+    width:326px;
+    height:240px;
+    float:left;
+    margin-right:11px;
+}
+#command div:last-child{
+    margin:0;
+}
+#command .command1{
+    background:url("images/index/sbanner1.jpg");
+}
+#command .command1 img{
+    float:right;
+    width:130px;
+    margin-top:50px;
+    margin-right:40px;
+}
+#command .command2{
+    background:url("images/index/sbanner1.jpg");
+}
+#command .command2 img{
+    width:230px;
+    margin-top:40px;
+    margin-right:40px;
+}
+#command .command3{
+    background:url("images/index/sbanner3.jpg");
+}
+#command .command3 img{
+    width:160px;
+
+}
+/* 5.横幅*/
+#wrapper{
+    height:500px;
+    background:url("images/index/index_guild.jpg");
+    background-size:100%;
+
+}
+/*6.main*/
+#main{
+    margin:15px 0;
+}
+#main .item-type{
+    margin-bottom:10px;
+    overflow:hidden;
+}
+
+/*顶部标题*/
+#main .item-type>h2{
+    color:#333;
+    font-size:24px;
+}
+#main h2 a{
+    display:inline-block;
+    font-size:14px;
+    background:#000;
+    color:#fff;
+}
+#main div{
+    margin-top:10px;
+}
+
+/*商品信息部分*/
+.item1{
+    width:775px;
+    height:400px;
+    background:#e8e8e8;
+    float:left;
+}
+.item2,.item3{
+    width:515px;
+    height:195px;
+    background:#e8e8e8;
+    float:right;
+}
+.item2{
+    margin-bottom:10px;
+}
+.item1 img{
+    float:right;
+    width:300px;
+    margin-top:60px;
+    margin-right:50px;
+}
+.item1 .brand{
+    font:bold 24px "微软雅黑";
+    color:#333;
+    margin-top:95px;
+    margin-left:55px;
+}
+/*三个模块中共同的子标题，价格和详情*/
+.subtitle{
+    font:14px; youyuan;
+    color:#333;
+    margin-left:30px;
+    margin-top: 30px;
+}
+.price{
+    font:bold 14px youyuan;
+    color:#6e5557;
+    margin-left:30px;
+    margin-top: 15px;
+}
+.detail{
+    width:132px;
+    height:24px;
+    background:#6e5557;
+    color:#fff;
+    font:bold 14px youyuan;
+    text-align:center;
+    line-height:24px;
+    margin-top:20px;
+    margin-left:30px;
+}
+.item2 img{
+    float:right;
+    width:180px;
+    margin-top:20px;
+    margin-right:10px;
+}
+.item3 img{
+    float:right;
+    width:100px;
+    margin-top:25px;
+    margin-right:30px;
+}
+/*item1中边距特殊调整*/
+.item1 .subtitle{
+    margin-left:60px;
+}
+.item1 .price,.item1 .detail{
+    margin-left:120px;
+}
+
+/*7.footer*/
+#footer{
+    overflow:hidden;
+    margin:30px 0;
+}
+#footer div{
+    float:left;
+    margin:0 120px;
+}
+
+/*8.bottom*/
+#bottom{
+    overflow:hidden;
+}
+#bottom .download{
+    float:right;
+    width:300px;
+}
+#bottom .download img,#bottom .download p{
+    float:right;
+    width:145px;
+    color:#333;
+    font-size:14px;
+    text-align:justify;
+}
+#bottom  .download .erweima{
+    width:120px;
+    margin-left:10px;
+}
+#bottom  .download .android{
+    margin:5px 0;
+}
+#bottom .footerLogo{
+
+    border-radius:10px;
+}
+#bottom>img{
+    width:480px;
+}
+#bottom>p{
+    color:#333;
+    text-align:center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
