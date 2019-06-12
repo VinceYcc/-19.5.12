@@ -155,12 +155,12 @@ def checkuname():
     if drug:
         dic = {
             "status":1,
-            "text":"uname already exist"
+            "text":"该药品已存在"
         }
     else:
         dic = {
             "status":0,
-            "text":"uname does not exist"
+            "text":"可以添加"
         }
     return json.dumps(dic)
 
@@ -348,6 +348,7 @@ def check_server():
 
 @app.route("/register")
 def register():
+
     return render_template("register.html",params=locals())
 
 

@@ -49,22 +49,24 @@
         </ul>
     </div>
     <form action="/update" method="post">
+
         <p>
-            药品编码:<input type="number" name="uid">
+            药品编码:<input type="number" name="uid" value="{{params.id}}">
         </p>
         <p>
-            药品名称:<input type="text" name="uname">
+            药品名称:<input type="text" name="uname" value="{{params.name}}">
         </p>
         <p>
-            药品厂商:<input type="text" name="upro">
+            药品厂商:<input type="text" name="upro" value="{{params.pro}}">
         </p>
         <p>
-            药品数量:<input type="number" name="unum">
+            药品数量:<input type="number" name="unum" value="{{params.num}}">
         </p>
         <p>
-            药品价格:<input type="number" name="uprice">
+            药品价格:<input type="number" name="uprice" value="{{params.price}}">
         </p>
         <button id="btn">修改</button>
+
     </form>
     </div>
 </body>
