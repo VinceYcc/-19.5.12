@@ -22,7 +22,7 @@
                             $("#d5").attr("value",date);
                         }
                         else{for(var i=0;i<data.length;i++){
-                        $("#d6").html("已挂号，请勿重复操作");
+                        $("#d6").html("已挂号");
                         temp = true;
                         $("#d2").attr("value",data[i].s_name);
                         $("#d3").attr("value",data[i].s_tel);
@@ -56,9 +56,24 @@
     </script>
     <script>
 function replaceDoc(){
-    window.location.replace("/check")
+    window.location.replace("/register")
 }
 </script>
+    <style>
+        #d7{
+            float:left;
+        }
+        #d8{
+            font-size:18px;
+            margin-left:100px;
+        }
+        table{
+            margin:auto;
+
+        }
+
+
+    </style>
 </head>
 <body>
 <div id="box">
@@ -83,13 +98,21 @@ function replaceDoc(){
         </ul>
     </div>
     <table border="0" width="350">
-    <tr><th>身份证号:</th><th><input type="text" id="d1"></th><td id="d6"></td></tr>
-    <tr><th>姓名:</th><th><input type="text" id="d2"></th></tr>
-    <tr><th>联系电话:</th><th><input type="text" id="d3"></th></tr>
-    <tr><th>家庭住址:</th><th><input type="text" id="d4"></th></tr>
-    <tr><th>就诊日期:</th><th><input type="text" id="d5"></th></tr>
-    <tr><th></th><th><input type="button" id="d7" value="挂号"></th></tr>
+    <tr><th width="100px">身份证号:</th><th align="left" ><input type="text" id="d1"></th><td id="d6" width="50px"></td></tr>
+    <tr><th>姓名:</th><th align="left"><input type="text" id="d2"></th></tr>
+    <tr><th>联系电话:</th><th align="left"><input type="text" id="d3"></th></tr>
+    <tr><th>家庭住址:</th><th align="left"><input type="text" id="d4"></th></tr>
+    <tr><th>就诊日期:</th><th align="left"><input type="text" id="d5"></th></tr>
+
+    <tr><th>
+        <td><input type="button" id="d7" value="挂号">
+        <a href="/check" id="d8">查询</a>
+    </td>
+        <td></td>
+        </th></tr>
+
     </table>
+
     </div>
 </body>
 </html>
