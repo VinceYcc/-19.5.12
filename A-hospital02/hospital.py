@@ -408,24 +408,53 @@ def add_bed():
         beds = Medical_mange()
         blist = []
         plist = []
+        p01list = []
         patient_bed = request.form['bed_id']
         patient_id = request.form['patient_id']
         medical_num = request.form['medical_num']
-        patient = db.session.query(Patient_order).filter_by(patient_id=patient_id).all()
+        patient = db.session.query(Patient_order).all()
+        print('patient:',patient)
+
+        patient_id01 = db.session.query(Medical_mange).all()
+        print("patient_id01:",patient_id01)
         patient_beds = db.session.query(Medical_mange).filter_by(patient_bed=patient_bed).all()
+
+        for p in patient_id01:
+            p01list.append(p.patient_id)
+        print('p01list:',p01list)
         for b in patient_beds:
             blist.append(b.patient_bed)
-            for p in patient:
-                plist.append(p.patient_id)
-        if patient_bed in blist or patient_id in plist:
-            return "床位已被使用"
-        else:
-            beds.patient_bed = patient_bed
-            beds.patient_id = patient_id
-            beds.medical_num = medical_num
-            db.session.add(beds)
-            # db.session.commit()
-            return "添加成功"
+        for p in patient:
+            plist.append(p.patient_id)
+        print(plist)
+        print(blist)
+        try:
+            # if patient_bed in blist or patient_id in plist:
+            #     return "床位已被使用"
+
+            if patient_bed in blist:
+                return "床位已被使用"
+            # elif p
+            elif patient_id in plist:
+                return "未找到病人"
+            else:
+                if patient_id in p01list:
+                    return '病人已入住'
+                else:
+                    # return redirect('/add_bed')
+                    beds.patient_bed = patient_bed
+                    beds.patient_id = patient_id
+                    beds.medical_num = medical_num
+                    db.session.add(beds)
+            return "添加床位成功"
+
+        except:
+                return redirect('/inhospital')
+
+
+
+
+
 
 #申请出院，根据病人id号删除
 # @app.route('/del_patient',methods=['GET','POST'])

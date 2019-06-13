@@ -11,9 +11,16 @@
         span{
             margin-top:5px;
             margin-right:10px;
+            font-size:17px;
         }
 
 
+    </style>
+    <style>
+        #left a{
+    margin:0 25px;
+    font-size:20px;
+}
     </style>
 </head>
 <body>
@@ -38,6 +45,16 @@
             </li>
         </ul>
     </div>
+     <div id="left">
+                    <a href="/add_patient">预约病房</a>
+                    <a href="/check_infor">预约情况</a>
+                    <a href="/inhospital">住房情况</a>
+                    <a href="/add_01">住院申请</a>
+                    <a href="/">申请出院</a>
+
+                    <a href="/">费用结算</a>
+                    <a href="/">统计账单</a>
+     </div>
 
 <form action="/add_bed" method="post" enctype="multipart/form-data">
     <span>请输入护士ID：<input type="text" name="medical_num"></span>
