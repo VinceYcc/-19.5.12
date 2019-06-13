@@ -402,6 +402,9 @@ def reg1():
 # 住院------------------------------------------------------------
 @app.route('/add_01')
 def add_01():
+    if 'name' in request.args:
+        name = request.args['name']
+
     return render_template('add_bed.html',params = locals())
 
 
@@ -409,6 +412,8 @@ def add_01():
 def add_bed():
     # 接收一个床位号进行判断是否占用
     if request.method == 'GET':
+        if 'name' in request.args:
+            name = request.args['name']
         return render_template('add_bed.html',params = locals())
 
     else:
@@ -456,7 +461,7 @@ def add_bed():
             return "添加床位成功"
 
         except:
-                return redirect('/inhospital')
+                return redirect('/inhospital',params=locals())
 
 
 
@@ -495,6 +500,8 @@ def add_bed():
 @app.route('/add_patient',methods=['GET','POST'])
 def add_patient():
     if request.method == "GET":
+        if 'name' in request.args:
+            name = request.args['name']
         return render_template("add_patient.html",params=locals())
     else:
         patient_name = request.form['patient_name']
@@ -520,12 +527,16 @@ def add_patient():
 
 @app.route('/check_user')
 def user_info():
+    if 'name' in request.args:
+        name=request.args['name']
 
     return render_template('inhospital.html',params = locals())
 
 # 查看床位使用的情况
 @app.route('/inhospital')
 def check_person():
+    if 'name' in request.args:
+        name=request.args['name']
     users = Medical_mange.query.all()
     # 查询关联的床位号信息
     # patient_person = users.patient_bed.all()
@@ -539,7 +550,8 @@ def check_person():
 
 @app.route('/check_all')
 def user_all():
-
+    if 'name' in request.args:
+        name=request.args['name']
     return render_template('check_all.html',params = locals())
 
 # 查看床位使用的情况
@@ -573,7 +585,9 @@ def check_all():
 def recive_id_bed():
     # 接收一个床位号进行判断是否占用
     if request.method == 'GET':
-        return render_template('recive_bed.html')
+        if 'name' in request.args:
+            name = request.args['name']
+        return render_template('recive_bed.html',params=locals())
 
     else:
         beds = Medical_person()
@@ -585,7 +599,7 @@ def recive_id_bed():
             beds.medical_num = medical_bed
             db.session.add(beds)
             db.session.commit()
-            return render_template('inhospital.html')
+            return render_template('inhospital.html',params=locals())
 
 """
 # 出院
