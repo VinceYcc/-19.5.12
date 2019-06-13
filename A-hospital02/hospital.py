@@ -288,7 +288,8 @@ def exp_excel():
 # show界面 二级页面----------------------------------------------
 @app.route('/show')
 def show():
-    name=request.args['name']
+    if 'name' in request.args:
+        name = request.args['name']
     return render_template('show.html',params=locals())
 
 @app.route('/switch')
@@ -317,6 +318,8 @@ def level_2():
 
 @app.route('/check')
 def test():
+    if 'name' in request.args:
+        name=request.args['name']
     return render_template('check.html',params=locals())
 
 
@@ -348,6 +351,8 @@ def check_server():
 
 @app.route("/register")
 def register():
+    if 'name' in request.args:
+        name=request.args['name']
 
     return render_template("register.html",params=locals())
 
@@ -367,6 +372,8 @@ def reg():
 
 @app.route("/reg1")
 def reg1():
+    if 'name' in request.args:
+        name=request.args['name']
     id_card = request.args["id_card"]
     s_name = request.args["s_name"]
     s_addr = request.args["s_addr"]
@@ -386,9 +393,9 @@ def reg1():
         try:
             db.session.add(sicker)
             db.session.commit()
-            return render_template("register.html")
+            return render_template("register.html",params=locals())
         except:
-            return render_template("register.html")
+            return render_template("register.html",params=locals())
 
 
 
